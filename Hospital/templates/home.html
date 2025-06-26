@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Management System</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="logo"><i class="fa-solid fa-hospital"></i> HMS</span>
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li data-section="dashboard" class="active"><i class="fa fa-chart-line"></i> Dashboard</li>
+          <li data-section="patients"><i class="fa fa-user-injured"></i> Patient Records</li>
+          <li data-section="appointments"><i class="fa fa-calendar-check"></i> Appointment Scheduling</li>
+          <li data-section="doctors"><i class="fa fa-user-md"></i> Doctor Management</li>
+          <li data-section="billing"><i class="fa fa-file-invoice-dollar"></i> Billing</li>
+          <li data-section="reports"><i class="fa fa-file-medical-alt"></i> Reports</li>
+          <li data-section="settings"><i class="fa fa-cog"></i> Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Navbar -->
+      <header class="top-navbar">
+        <div class="left">
+          <button class="sidebar-toggle mobile" id="mobileSidebarToggle"><i class="fa fa-bars"></i></button>
+        </div>
+        <div class="right">
+          <button id="themeToggle" title="Toggle Theme"><i class="fa fa-moon"></i></button>
+          <button class="notification-btn">
+            <i class="fa fa-bell"></i>
+            <span class="badge" id="notifBadge">3</span>
+          </button>
+          <div class="profile">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="profile-img" />
+            <span class="profile-name">Dr. John Doe</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Loading Spinner -->
+      <div id="loader" class="loader-overlay hidden">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- Main Dynamic Content -->
+      <main id="content">
+        <!-- Content gets loaded here via JS -->
+        <section id="dashboardSection" class="content-section">
+          <h2>Dashboard</h2>
+          <p>Welcome to the Hospital Management System dashboard.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal for dynamic forms/details -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript for UI logic -->
+  <script src="{% static 'script.js' %} "></script>
+</body>
+</html>
